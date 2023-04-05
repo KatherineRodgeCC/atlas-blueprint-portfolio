@@ -12,6 +12,8 @@ const appConfig = {
    */
   projectsPerPage: 5,
 
+  locationsPerPage: 5,
+
   /**
    * The number of post featured images that are above the fold for most screen sizes.
    * These images will be considered high priority and preloaded.
