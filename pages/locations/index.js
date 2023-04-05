@@ -9,7 +9,7 @@ import {
   EntryHeader,
   LoadMore,
   Main,
-  Projects,
+  Locations,
   SEO,
   NavigationMenu,
 } from 'components';
@@ -30,22 +30,22 @@ export default function Page() {
   const { title: siteTitle } = data?.generalSettings;
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
-  const projectList = data.projects.edges.map((el) => el.node);
+  const locationsList = data.locations.edges.map((el) => el.node);
 
   return (
     <>
-      <SEO title={pageTitle(data?.generalSettings, 'Projects')} />
+      <SEO title={pageTitle(data?.generalSettings, 'Locations')} />
 
       <Header menuItems={primaryMenu} />
 
       <Main>
         <EntryHeader title="Location Connected" />
         <div className="container">
-          <Projects projects={projectList} id="project-list" />
+          <Locations locations={locationsList} id="Locations-list" />
           <LoadMore
             className="text-center"
-            hasNextPage={data.projects.pageInfo.hasNextPage}
-            endCursor={data.projects.pageInfo.endCursor}
+            hasNextPage={data.locations.pageInfo.hasNextPage}
+            endCursor={data.locations.pageInfo.endCursor}
             isLoading={loading}
             fetchMore={fetchMore}
           />
@@ -61,17 +61,17 @@ Page.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
   ${FeaturedImage.fragments.entry}
-  ${Projects.fragments.entry}
-  query GetProjectsPage(
+  ${Locations.fragments.entry}
+  query GetLocationsPage(
     $first: Int!
     $after: String!
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
   ) {
-    projects(first: $first, after: $after) {
+    locations(first: $first, after: $after) {
       edges {
         node {
-          ...ProjectsFragment
+          ...LocationsFragment
         }
       }
       pageInfo {
