@@ -43,7 +43,7 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
                 <Heading level="h3">
                   <Link href={location?.uri ?? '#'}>
                     <a ref={isFirstNewResult ? firstNewResultRef : null}>
-                      {locationtitle}
+                      {location.facilityName}
                     </a>
                   </Link>
                 </Heading>
