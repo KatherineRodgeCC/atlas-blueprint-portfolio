@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Heading } from 'components';
 import className from 'classnames/bind';
 import useFocusFirstNewResult from 'hooks/useFocusFirstNewResult';
-import appConfig from 'app.config';
 
 import styles from './Projects.module.scss';
 const cx = className.bind(styles);
