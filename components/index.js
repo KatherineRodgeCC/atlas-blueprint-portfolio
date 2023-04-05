@@ -12,6 +12,7 @@ import NavigationMenu from './NavigationMenu/NavigationMenu';
 import PostInfo from './PostInfo/PostInfo';
 import Posts from './Posts';
 import Projects from './Projects';
+import Locations from './Locations';
 import ProjectHeader from './ProjectHeader';
 import SEO from './SEO';
 import Footer from './Footer';
@@ -39,6 +40,7 @@ export {
   PostInfo,
   Posts,
   Projects,
+  Locations,
   ProjectHeader,
   SEO,
   Footer,

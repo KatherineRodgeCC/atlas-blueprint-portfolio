@@ -43,7 +43,7 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
                 <Heading level="h3">
                   <Link href={location?.uri ?? '#'}>
                     <a ref={isFirstNewResult ? firstNewResultRef : null}>
-                      {location.facility}
+                      {location.title}
                     </a>
                   </Link>
                 </Heading>
@@ -60,50 +60,10 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
 Locations.fragments = {
   entry: gql`
   fragment LocationFields on Location {
-    facilityImage {
-      mediaItemId
-      mediaItemUrl
-      altText
-      caption
-      description
-      mediaDetails {
-        height
-        width
-        sizes {
-          file
-          fileSize
-          height
-          mimeType
-          name
-          sourceUrl
-          width
-        }
-      }
-    }
-    facilityName
-    address
-    content
-    size
-    video {
-      mediaItemId
-      mediaItemUrl
-      altText
-      caption
-      description
-      mediaDetails {
-        height
-        width
-        sizes {
-          file
-          fileSize
-          height
-          mimeType
-          name
-          sourceUrl
-          width
-        }
-      }
-    }
+    id
+    title
+    uri
+    ...FeaturedImageFragment
   }
   `,
 };
