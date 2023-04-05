@@ -12,7 +12,7 @@ const cx = className.bind(styles);
 /**
  * Renders a list of Project items
  * @param {Props} props The props object.
- * @param {Project[]} props.projects The array of project items.
+ * @param {Project[]} props.locations The array of project items.
  * @param {string} props.id The unique id for this component.
  * @param {string} props.emptyText Message to show when there are no projects.
  * @returns {React.ReactElement} The Projects component
@@ -31,43 +31,76 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
           <div
             className="row"
             key={project.id ?? ''}
-            id={`location-${project.id}`}
+            id={`location-${location.id}`}
           >
             <div className={cx('list-item')}>
-              <FeaturedImage
-                className={cx('image')}
-                image={project?.featuredImage?.node}
-                priority={i < appConfig.projectsAboveTheFold}
-              />
               <div className={cx('content')}>
                 <Heading level="h3">
-                  <Link href={project?.uri ?? '#'}>
+                  <Link href={location?.uri ?? '#'}>
                     <a ref={isFirstNewResult ? firstNewResultRef : null}>
-                      {project.title}
+                      {location.title}
                     </a>
                   </Link>
                 </Heading>
-                <div>{project.summary}</div>
               </div>
             </div>
           </div>
         );
       })}
-      {projects && projects?.length < 1 && <p>{emptyText}</p>}
+      {locations && locations?.length < 1 && <p>{emptyText}</p>}
     </section>
   );
 }
 
-Projects.fragments = {
+Locations.fragments = {
   entry: gql`
-    fragment ProjectsFragment on Project {
-      id
-      title
-      summary
-      uri
-      ...FeaturedImageFragment
+  fragment LocationFields on Location {
+    headerImage {
+      mediaItemId
+      mediaItemUrl
+      altText
+      caption
+      description
+      mediaDetails {
+        height
+        width
+        sizes {
+          file
+          fileSize
+          height
+          mimeType
+          name
+          sourceUrl
+          width
+        }
+      }
+    }
+    facilityName
+    address
+    content
+    size
+    video {
+      mediaItemId
+      mediaItemUrl
+      altText
+      caption
+      description
+      mediaDetails {
+        height
+        width
+        sizes {
+          file
+          fileSize
+          height
+          mimeType
+          name
+          sourceUrl
+          width
+        }
+      }
+    }
     }
   `,
 };
 
-export default Projects;
+export default Locations;

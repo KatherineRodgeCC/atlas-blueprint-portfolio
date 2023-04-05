@@ -30,18 +30,18 @@ export default function Page() {
   const { title: siteTitle } = data?.generalSettings;
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
-  const projectList = data.projects.edges.map((el) => el.node);
+  const locationList = data.locations.edges.map((el) => el.node);
 
   return (
     <>
-      <SEO title={pageTitle(data?.generalSettings, 'Projects')} />
+      <SEO title={pageTitle(data?.generalSettings, 'Locations')} />
 
       <Header menuItems={primaryMenu} />
 
       <Main>
-        <EntryHeader title="Test Connection" />
+        <EntryHeader title="Locations" />
         <div className="container">
-          <Projects projects={projectList} id="project-list" />
+          <Projects projects={locationList} id="location-list" />
           <LoadMore
             className="text-center"
             hasNextPage={data.projects.pageInfo.hasNextPage}
