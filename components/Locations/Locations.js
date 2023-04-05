@@ -60,6 +60,7 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
 Locations.fragments = {
   entry: gql`
   fragment LocationFields on Location {
+    id
     headerImage {
       mediaItemId
       mediaItemUrl
