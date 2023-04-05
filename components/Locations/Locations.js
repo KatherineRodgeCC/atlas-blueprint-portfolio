@@ -13,7 +13,7 @@ const cx = className.bind(styles);
  * @param {string} props.emptyText Message to show when there are no projects.
  * @returns {React.ReactElement} The Projects component
  */
-function Locations({ location, id, emptyText = 'No projects found.' }) {
+function Locations({ location, id }) {
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
