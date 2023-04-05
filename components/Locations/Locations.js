@@ -1,9 +1,10 @@
 import { gql } from '@apollo/client';
 import React from 'react';
 import Link from 'next/link';
-import { Heading } from 'components';
+import { Heading, FeaturedImage } from 'components';
 import className from 'classnames/bind';
 import useFocusFirstNewResult from 'hooks/useFocusFirstNewResult';
+import appConfig from 'app.config';
 
 import styles from './Projects.module.scss';
 const cx = className.bind(styles);
@@ -33,15 +34,19 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
             id={`project-${location.id}`}
           >
             <div className={cx('list-item')}>
+              <FeaturedImage
+                className={cx('image')}
+                image={location?.featuredImage?.node}
+                priority={i < appConfig.projectsAboveTheFold}
+              />
               <div className={cx('content')}>
                 <Heading level="h3">
                   <Link href={location?.uri ?? '#'}>
                     <a ref={isFirstNewResult ? firstNewResultRef : null}>
-                      {location.facilityName}
+                      {location.facility}
                     </a>
                   </Link>
                 </Heading>
-                <div>{location.content}</div>
               </div>
             </div>
           </div>
@@ -54,12 +59,52 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
 
 Locations.fragments = {
   entry: gql`
-    fragment LocationsFragment on Location {
-      id
-      facilityName
-      uri
-      content
+  fragment LocationFields on Location {
+    facilityImage {
+      mediaItemId
+      mediaItemUrl
+      altText
+      caption
+      description
+      mediaDetails {
+        height
+        width
+        sizes {
+          file
+          fileSize
+          height
+          mimeType
+          name
+          sourceUrl
+          width
+        }
+      }
     }
+    facilityName
+    address
+    content
+    size
+    video {
+      mediaItemId
+      mediaItemUrl
+      altText
+      caption
+      description
+      mediaDetails {
+        height
+        width
+        sizes {
+          file
+          fileSize
+          height
+          mimeType
+          name
+          sourceUrl
+          width
+        }
+      }
+    }
+  }
   `,
 };
 

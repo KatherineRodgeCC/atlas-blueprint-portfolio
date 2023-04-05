@@ -99,7 +99,7 @@ Page.query = gql`
 
 Page.variables = () => {
   return {
-    first: appConfig.projectsPerPage,
+    first: appConfig.locationsPerPage,
     after: '',
     headerLocation: MENUS.PRIMARY_LOCATION,
     footerLocation: MENUS.FOOTER_LOCATION,
