@@ -62,16 +62,16 @@ Page.query = gql`
   ${NavigationMenu.fragments.entry}
   ${FeaturedImage.fragments.entry}
   ${Locations.fragments.entry}
-  query GetProjectsPage(
+  query GetLocationsPage(
     $first: Int!
     $after: String!
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
   ) {
-    projects(first: $first, after: $after) {
+    locations(first: $first, after: $after) {
       edges {
         node {
-          ...ProjectsFragment
+          ...LocationFields
         }
       }
       pageInfo {
