@@ -1,8 +1,10 @@
 import { gql } from '@apollo/client';
 import React from 'react';
-
+import Link from 'next/link';
+import { Heading, FeaturedImage } from 'components';
 import className from 'classnames/bind';
-
+import useFocusFirstNewResult from 'hooks/useFocusFirstNewResult';
+import appConfig from 'app.config';
 
 import styles from './Projects.module.scss';
 const cx = className.bind(styles);
@@ -16,12 +18,15 @@ const cx = className.bind(styles);
  * @returns {React.ReactElement} The Projects component
  */
 function Locations({ locations, id, emptyText = 'No projects found.' }) {
-
+  const { firstNewResultRef, firstNewResultIndex } =
+    useFocusFirstNewResult(locations);
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <section {...(id && { id })}>
-      {locations?.map((project, i) => {
+      {locations?.map((location, i) => {
+        const isFirstNewResult = i === firstNewResultIndex;
+
         return (
           <div
             className="row"
@@ -29,9 +34,19 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
             id={`project-${location.id}`}
           >
             <div className={cx('list-item')}>
+              <FeaturedImage
+                className={cx('image')}
+                image={location?.headerImage?.node}
+                priority={i < appConfig.projectsAboveTheFold}
+              />
               <div className={cx('content')}>
-                 <h2>{location.facilityName}</h2>
-                <div>{location.content}</div>
+                <Heading level="h3">
+                  <Link href={location?.uri ?? '#'}>
+                    <a ref={isFirstNewResult ? firstNewResultRef : null}>
+                      {location.facilityName}
+                    </a>
+                  </Link>
+                </Heading>
               </div>
             </div>
           </div>
