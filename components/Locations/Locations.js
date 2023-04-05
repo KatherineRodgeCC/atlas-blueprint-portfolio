@@ -1,7 +1,8 @@
 import { gql } from '@apollo/client';
 import React from 'react';
+
 import className from 'classnames/bind';
-import useFocusFirstNewResult from 'hooks/useFocusFirstNewResult';
+
 
 import styles from './Projects.module.scss';
 const cx = className.bind(styles);
@@ -15,15 +16,12 @@ const cx = className.bind(styles);
  * @returns {React.ReactElement} The Projects component
  */
 function Locations({ locations, id, emptyText = 'No projects found.' }) {
-  const { firstNewResultRef, firstNewResultIndex } =
-    useFocusFirstNewResult(locations);
+
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <section {...(id && { id })}>
       {locations?.map((project, i) => {
-        const isFirstNewResult = i === firstNewResultIndex;
-
         return (
           <div
             className="row"
@@ -32,7 +30,8 @@ function Locations({ locations, id, emptyText = 'No projects found.' }) {
           >
             <div className={cx('list-item')}>
               <div className={cx('content')}>
-                <div>{location.facilityName}</div>
+                 <h2>{location.facilityName}</h2>
+                <div>{location.content}</div>
               </div>
             </div>
           </div>
