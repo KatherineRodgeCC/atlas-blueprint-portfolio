@@ -1,150 +1,69 @@
 import * as MENUS from 'constants/menus';
 
-import { useQuery, gql } from '@apollo/client';
-import { FaArrowRight } from 'react-icons/fa';
-import styles from 'styles/pages/_Home.module.scss';
+import { gql } from '@apollo/client';
 import {
-  EntryHeader,
-  Main,
-  Button,
-  Heading,
-  CTA,
-  NavigationMenu,
-  SEO,
   Header,
+  EntryHeader,
   Footer,
-  Posts,
-  Testimonials,
+  ProjectHeader,
+  ContentWrapper,
+  NavigationMenu,
+  FeaturedImage,
+  Main,
+  SEO,
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
 
-const postsPerPage = 3;
-
-export default function Component() {
-  const { data, loading } = useQuery(Component.query, {
-    variables: Component.variables(),
-  });
-  if (loading) {
-    return null;
+export default function Component(props) {
+  // Loading state for previews
+  if (props.loading) {
+    return <>Loading...</>;
   }
-
-  const { title: siteTitle, description: siteDescription } =
-    data?.generalSettings;
-  const primaryMenu = data?.headerMenuItems?.nodes ?? [];
-  const footerMenu = data?.footerMenuItems?.nodes ?? [];
-
-  const mainBanner = {
-    sourceUrl: '/static/banner.jpeg',
-    mediaDetails: { width: 1200, height: 600 },
-    altText: 'Portfolio Banner',
-  };
+  const { title: siteTitle } = props?.data?.generalSettings;
+  const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
+  const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
+  const { title, summary, featuredImage, contentArea } = props.data.project;
   return (
     <>
-      <SEO title={siteTitle} description={siteDescription} />
-
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
+      <SEO
+        title={`${title} - ${props?.data?.generalSettings?.title}`}
+        imageUrl={featuredImage?.node?.sourceUrl}
       />
 
-      <Main className={styles.home}>
-        <EntryHeader image={mainBanner} />
+      <Header menuItems={primaryMenu} />
+
+      <Main>
+        <EntryHeader title="Test" />
+        <ProjectHeader
+          image={featuredImage?.node}
+          summary={summary}
+          title={title}
+        />
         <div className="container">
-          <section className="hero text-center">
-            <Heading className={styles.heading} level="h1">
-              Welcome to your Blueprint
-            </Heading>
-            <p className={styles.description}>
-              Achieve unprecedented performance with modern frameworks and the
-              world&apos;s #1 open source CMS in one powerful headless platform.{' '}
-            </p>
-            <div className={styles.actions}>
-              <Button styleType="secondary" href="/contact-us">
-                GET STARTED
-              </Button>
-              <Button styleType="primary" href="/about">
-                LEARN MORE
-              </Button>
-            </div>
-          </section>
-          <section className="cta">
-            <CTA
-              Button={() => (
-                <Button href="/posts">
-                  Get Started <FaArrowRight style={{ marginLeft: `1rem` }} />
-                </Button>
-              )}
-            >
-              <span>
-                Learn about Core Web Vitals and how Atlas can help you reach
-                your most demanding speed and user experience requirements.
-              </span>
-            </CTA>
-          </section>
-          <section className={styles.posts}>
-            <Heading className={styles.heading} level="h2">
-              Latest Posts
-            </Heading>
-            <Posts posts={data.posts?.nodes} id="posts-list" />
-          </section>
-          <section className="cta">
-            <CTA
-              Button={() => (
-                <Button href="/posts">
-                  Get Started <FaArrowRight style={{ marginLeft: `1rem` }} />
-                </Button>
-              )}
-            >
-              <span>
-                Learn about Core Web Vitals and how Atlas can help you reach
-                your most demanding speed and user experience requirements.
-              </span>
-            </CTA>
-          </section>
-          <section className={styles.testimonials}>
-            <Heading className={styles.heading} level="h2">
-              Testimonials
-            </Heading>
-            <p className={styles.description}>
-              Here are just a few of the nice things our customers have to say.
-            </p>
-            <Testimonials testimonials={data?.testimonials?.nodes} />
-          </section>
+          <ContentWrapper content={contentArea} />
         </div>
       </Main>
-      <Footer menuItems={footerMenu} />
+
+      <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
 
-Component.variables = () => {
-  return {
-    headerLocation: MENUS.PRIMARY_LOCATION,
-    footerLocation: MENUS.FOOTER_LOCATION,
-    first: postsPerPage,
-  };
-};
-
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  ${Posts.fragments.entry}
-  ${Testimonials.fragments.entry}
-  query GetPageData(
+  ${FeaturedImage.fragments.entry}
+  query GetPost(
+    $databaseId: ID!
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
-    $first: Int
+    $asPreview: Boolean = false
   ) {
-    posts(first: $first) {
-      nodes {
-        ...PostsItemFragment
-      }
-    }
-    testimonials {
-      nodes {
-        ...TestimonialsFragment
-      }
+    project(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+      title: projectTitle
+      summary
+      contentArea
+      ...FeaturedImageFragment
     }
     generalSettings {
       ...BlogInfoFragment
@@ -161,3 +80,12 @@ Component.query = gql`
     }
   }
 `;
+
+Component.variables = ({ databaseId }, ctx) => {
+  return {
+    databaseId,
+    headerLocation: MENUS.PRIMARY_LOCATION,
+    footerLocation: MENUS.FOOTER_LOCATION,
+    asPreview: ctx?.asPreview,
+  };
+};
