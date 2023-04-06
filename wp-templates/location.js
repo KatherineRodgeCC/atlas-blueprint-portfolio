@@ -3,8 +3,14 @@ import * as MENUS from 'constants/menus';
 import { gql } from '@apollo/client';
 import {
   Header,
+  EntryHeader,
   Footer,
+  ProjectHeader,
+  ContentWrapper,
   NavigationMenu,
+  FeaturedImage,
+  Main,
+  SEO,
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
 
@@ -16,9 +22,28 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
+  const { title, content, featuredImage } = props.data.location;
   return (
     <>
+      <SEO
+        title={`${title} - ${props?.data?.generalSettings?.title}`}
+        imageUrl={featuredImage?.node?.sourceUrl}
+      />
+
       <Header menuItems={primaryMenu} />
+
+      <Main>
+
+        <EntryHeader title={title} />
+        <ProjectHeader
+          image={featuredImage?.node}
+          summary={title}
+          title={title}
+        />
+        <div className="container">
+          <ContentWrapper content={content} />
+        </div>
+      </Main>
 
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
@@ -28,12 +53,19 @@ export default function Component(props) {
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
+  ${FeaturedImage.fragments.entry}
   query GetPost(
     $databaseId: ID!
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
     $asPreview: Boolean = false
-  ) generalSettings {
+  ) {
+    location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+      title: facilityName
+      content
+      ...FeaturedImageFragment
+    }
+    generalSettings {
       ...BlogInfoFragment
     }
     headerMenuItems: menuItems(where: { location: $headerLocation }) {
