@@ -5,8 +5,6 @@ import {
   Header,
   Footer,
   NavigationMenu,
-  FeaturedImage,
-  SEO,
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
 
@@ -20,11 +18,6 @@ export default function Component(props) {
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
   return (
     <>
-      <SEO
-        title={`${title} - ${props?.data?.generalSettings?.title}`}
-        imageUrl={featuredImage?.node?.sourceUrl}
-      />
-
       <Header menuItems={primaryMenu} />
 
       <Footer title={siteTitle} menuItems={footerMenu} />
@@ -35,18 +28,12 @@ export default function Component(props) {
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  ${FeaturedImage.fragments.entry}
   query GetPost(
     $databaseId: ID!
     $headerLocation: MenuLocationEnum
     $footerLocation: MenuLocationEnum
     $asPreview: Boolean = false
-  ) {
-    location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-      title: facilityName
-      ...FeaturedImageFragment
-    }
-    generalSettings {
+  ) generalSettings {
       ...BlogInfoFragment
     }
     headerMenuItems: menuItems(where: { location: $headerLocation }) {
