@@ -37,7 +37,6 @@ Component.query = gql`
   ) {
     location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title: locationTitle
-      ...FeaturedImageFragment
     }
     generalSettings {
       ...BlogInfoFragment
