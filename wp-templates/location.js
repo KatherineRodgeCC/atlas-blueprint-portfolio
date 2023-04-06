@@ -22,7 +22,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, summary, featuredImage, contentArea } = props.data.project;
+  const { title, content, featuredImage } = props.data.location;
   return (
     <>
       <SEO
@@ -36,11 +36,11 @@ export default function Component(props) {
         <EntryHeader title={title} />
         <ProjectHeader
           image={featuredImage?.node}
-          summary={summary}
+          summary={content}
           title={title}
         />
         <div className="container">
-          <ContentWrapper content={contentArea} />
+          <ContentWrapper content={content} />
         </div>
       </Main>
 
@@ -59,10 +59,9 @@ Component.query = gql`
     $footerLocation: MenuLocationEnum
     $asPreview: Boolean = false
   ) {
-    project(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-      title: projectTitle
-      summary
-      contentArea
+    location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+      title: factilityName
+      content
       ...FeaturedImageFragment
     }
     generalSettings {
