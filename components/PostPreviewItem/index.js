@@ -1,3 +1,3 @@
-import TestimonialItem from './TestimonialItem';
+import PostPreviewItem from './PostPreviewItem';
 
-export default TestimonialItem;
+export default PostPreviewItem;
