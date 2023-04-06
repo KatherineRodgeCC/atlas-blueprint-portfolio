@@ -10,6 +10,7 @@ import LoadMore from './LoadMore';
 import Main from './Main';
 import NavigationMenu from './NavigationMenu/NavigationMenu';
 import PostInfo from './PostInfo/PostInfo';
+import PostPreviewItem from './PostPreviewItem/PostPreviewItem';
 import Posts from './Posts';
 import Projects from './Projects';
 import Locations from './Locations';
@@ -38,6 +39,7 @@ export {
   Main,
   NavigationMenu,
   PostInfo,
+  PostPreviewItem,
   Posts,
   Projects,
   Locations,

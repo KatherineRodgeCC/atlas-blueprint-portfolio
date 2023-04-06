@@ -16,6 +16,7 @@ import {
 import { getNextStaticProps } from '@faustwp/core';
 import { pageTitle } from 'utilities';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
+import { Carousel } from 'react-responsive-carousel';
 import appConfig from 'app.config';
 
 export default function Page() {
@@ -40,7 +41,8 @@ export default function Page() {
 
       <Main>
         <EntryHeader title="Latest Posts" />
-        <div className="container">
+        <div className="container">     
+
           <Posts posts={postList} id="post-list" />
           <LoadMore
             className="text-center"
