@@ -41,7 +41,7 @@ export default function Page() {
       <Main>
         <EntryHeader title="Location Connected" />
         <div className="container">
-          <Locations locations={locationsList} id="Locations-list" />
+          <Locations locations={locationsList} id="locations-list" />
           <LoadMore
             className="text-center"
             hasNextPage={data.locations.pageInfo.hasNextPage}

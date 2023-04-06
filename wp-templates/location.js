@@ -5,8 +5,6 @@ import {
   Header,
   EntryHeader,
   Footer,
-  ProjectHeader,
-  ContentWrapper,
   NavigationMenu,
   FeaturedImage,
   Main,
@@ -22,7 +20,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, content, featuredImage } = props.data.location;
+  const { title, featuredImage } = props.data.location;
   return (
     <>
       <SEO
@@ -34,13 +32,7 @@ export default function Component(props) {
 
       <Main>
         <EntryHeader title={title} />
-        <ProjectHeader
-          image={featuredImage?.node}
-          summary={content}
-          title={title}
-        />
         <div className="container">
-          <ContentWrapper content={content} />
         </div>
       </Main>
 
@@ -60,8 +52,7 @@ Component.query = gql`
     $asPreview: Boolean = false
   ) {
     location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-      title: factilityName
-      content
+      title: locationTitle
       ...FeaturedImageFragment
     }
     generalSettings {
