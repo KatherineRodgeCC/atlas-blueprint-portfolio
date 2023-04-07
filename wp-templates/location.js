@@ -38,7 +38,7 @@ export default function Component(props) {
           title={title}
           
           style= {{
-            backgroundImage: url({featuredImage?.node.url}),  
+            backgroundImage: 'url("{featuredImage?.node.sourceUrl}")',  
             backgroundSize: "contain",  
             backgroundRepeat: "no-repeat"
         }}/>
