@@ -7,6 +7,7 @@ import FormatDate from './FormatDate';
 import Heading from './Heading';
 import Header from './Header';
 import LoadMore from './LoadMore';
+import LocationHeader from './LocationHeader';
 import Main from './Main';
 import NavigationMenu from './NavigationMenu/NavigationMenu';
 import PostInfo from './PostInfo/PostInfo';
@@ -36,6 +37,7 @@ export {
   Heading,
   Header,
   LoadMore,
+  LocationHeader,
   Main,
   NavigationMenu,
   PostInfo,
