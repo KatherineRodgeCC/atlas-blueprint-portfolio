@@ -50,7 +50,7 @@ export default function Component(props) {
        </div> 
         <div class="row">
         <video width="320" height="240" controls>
-          <source src={`${videolink}`} type="video/mp4">
+          <source src={`"${videolink}"`} type="video/mp4">
            </source>   
         </video>
         </div>
