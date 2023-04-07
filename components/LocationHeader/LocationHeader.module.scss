@@ -4,12 +4,20 @@
   margin-bottom: 5rem;
 }
 
-.column {
-  flex: 1 1 auto;
+.location-header {
   width: 100%;
-  margin-left: 0;
-
-  @media (max-width: $breakpoint-extra-small) {
-    margin-left: revert;
-  }
+  height: 385px;
+  margin-top: -140px;
 }
+
+.background-image-row {
+  position: absolute; 
+  height: 100%; 
+  width: 100%; 
+}
+
+.location-info-header {
+  position: relative; 
+  z-index: 1;
+}
+

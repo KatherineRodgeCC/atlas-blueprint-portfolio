@@ -33,7 +33,10 @@ export default function Component(props) {
       <Header menuItems={primaryMenu} />
 
       <Main>
-        <LocationHeader title={title} />
+        <LocationHeader 
+          image={featuredImage?.node}
+          summary={title}
+          title={title} />
         <ProjectHeader
           image={featuredImage?.node}
           summary={title}
