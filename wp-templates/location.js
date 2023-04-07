@@ -21,7 +21,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, content, featuredImage, address, videolink } = props.data.location;
+  const { title, summary, content, featuredImage, address, videolink } = props.data.location;
   return (
     <>
       <SEO
@@ -34,14 +34,20 @@ export default function Component(props) {
       <Main>
         <LocationHeader 
           image={featuredImage?.node}
-          summary={title}
-          title={title} />
+          summary={summary}
+          title={title}
+          
+          style= {{
+            backgroundImage: url({featuredImage?.node.url}),  
+            backgroundSize: "contain",  
+            backgroundRepeat: "no-repeat"
+        }}/>
         <div className="container location-information">
           <div class="row">
             <div class="column">
               <div><h3>Location</h3>
               <p>{address}</p></div>
-              <div><h3>Local Grand Rapids Numbers</h3></div>
+              <div><h3>Facility Information</h3></div>
               </div>
             <div class="column">
              <ContentWrapper content={content} />
