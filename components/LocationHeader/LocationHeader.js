@@ -1,41 +1,31 @@
+import React from 'react';
+import { FeaturedImage, Heading } from 'components';
 import className from 'classnames/bind';
-import { FeaturedImage, Heading, PostInfo } from 'components';
 
-import styles from './LocationHeader.module.scss';
+import styles from './ProjectHeader.module.scss';
 const cx = className.bind(styles);
 /**
- * A Page or Post entry header component
- * @param {Props} props The props object.
- * @param {string} props.title The post/page title.
- * @param {MediaItem} props.image The image node.
- * @param {string} props.date The post/page publish date.
- * @param {string} props.author The post/page author's name.
- * @param {string} props.className An optional className to be added to the EntryHeader.
- * @return {React.ReactElement} The EntryHeader component.
+ * A Project entry header component
+ * @param {MediaItem} props.image The project image node.
+ * @param {string} props.title The project title.
+ * @param {string} props.summary The project summary.
+ * @returns {React.ReactElement} The PostInfo component
  */
-export default function LocationHeader({ title, image, date, author, className }) {
-  const hasText = title || date || author;
-
+function LocationHeader({ image, title, summary }) {
   return (
-    <div className={cx(['entry-header', className])}>
-      {hasText && (
-        <div className={cx('text')}>
-          {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          <PostInfo className={cx('byline')} author={author} date={date} />
-        </div>
-      )}
-
-      {image && (
-        <div className={cx('image')}>
-          <div className="container">
-            <FeaturedImage
-              className={cx('featured-image')}
-              image={image}
-              priority
-            />
+    <section className={cx('header')}>
+      <div className="container location-header">
+        <div className="row">
+          <FeaturedImage className="background-image" image={image} />
+        </div>  
+          <div className="row">
+            <Heading level="h2">{title}</Heading>
+            <p>{summary}</p>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 }
+
+export default LocationHeader;
