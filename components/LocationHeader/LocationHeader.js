@@ -17,7 +17,12 @@ export default function LocationHeader({ title, image, date, author, className }
   const hasText = title || date || author;
 
   return (
-    <div className={cx(['entry-header', className])}>
+    <div className={cx(['entry-header', className])}
+    style={{
+      backgroundImage: `url(${FeaturedImage.src})`,
+      width: '100%',
+      height: '100%',
+    }}>
       {hasText && (
         <div className={cx('text')}>
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
