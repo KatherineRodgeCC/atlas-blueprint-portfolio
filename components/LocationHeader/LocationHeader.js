@@ -1,5 +1,5 @@
 import className from 'classnames/bind';
-import { FeaturedImage, Heading, PostInfo } from 'components';
+import { FeaturedImage, Heading } from 'components';
 
 import styles from './LocationHeader.module.scss';
 const cx = className.bind(styles);
@@ -13,7 +13,7 @@ const cx = className.bind(styles);
  * @param {string} props.className An optional className to be added to the EntryHeader.
  * @return {React.ReactElement} The EntryHeader component.
  */
-export default function LocationHeader({ title, image, date, author, className }) {
+export default function LocationHeader({ title, image, date, author, className, summary }) {
   const hasText = title || date || author;
 
   return (
@@ -26,7 +26,7 @@ export default function LocationHeader({ title, image, date, author, className }
       {hasText && (
         <div className={cx('text')}>
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          <PostInfo className={cx('byline')} author={author} date={date} />
+          <p>{summary}</p>
         </div>
       )}
 
