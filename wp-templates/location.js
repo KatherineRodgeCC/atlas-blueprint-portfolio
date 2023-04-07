@@ -47,10 +47,17 @@ export default function Component(props) {
             <div class="column">
              <ContentWrapper content={content} />
             </div>  
-       </div> 
+         </div> 
+         <div class="row">
+            <h3>US Operations Impact Numbers</h3>
+            <div class="column">        
+            </div>
+            <div class="column">
+            </div>  
+         </div> 
         <div class="row">
         <video width="320" height="240" controls>
-          <source src={`"${videolink}"`} type="video/mp4">
+          <source src={`${videolink}`} type="video/mp4">
            </source>   
         </video>
         </div>
