@@ -5,7 +5,6 @@ import {
   Header,
   LocationHeader,
   Footer,
-  ProjectHeader,
   ContentWrapper,
   NavigationMenu,
   FeaturedImage,
@@ -22,7 +21,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, content, featuredImage, address } = props.data.location;
+  const { title, content, featuredImage, address, videolink } = props.data.location;
   return (
     <>
       <SEO
@@ -37,15 +36,24 @@ export default function Component(props) {
           image={featuredImage?.node}
           summary={title}
           title={title} />
-        <ProjectHeader
-          image={featuredImage?.node}
-          summary={title}
-          title={title}
-        />
         <div className="container location-information">
-          <div><h3>Location</h3><p>{address}</p></div>
-          <ContentWrapper content={content} />
+          <div class="row">
+            <div class="column">
+              <div><h3>Location</h3>
+              <p>{address}</p></div>
+              <div><h3>Local Grand Rapids Numbers</h3></div>
+              </div>
+            <div class="column">
+             <ContentWrapper content={content} />
+            </div>  
+       </div> 
+        <div class="row">
+        <video width="320" height="240" controls>
+          <source src={videolink} type="video/mp4">
+           </source>   
+        </video>
         </div>
+       </div>
       </Main>
 
       <Footer title={siteTitle} menuItems={footerMenu} />
