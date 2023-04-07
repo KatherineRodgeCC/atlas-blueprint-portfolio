@@ -23,7 +23,6 @@ function LocationHeader({ image, title, summary }) {
             <p>{summary}</p>
           </div>
         </div>
-      </div>
     </section>
   );
 }
