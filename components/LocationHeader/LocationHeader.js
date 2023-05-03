@@ -19,7 +19,7 @@ export default function LocationHeader({ title, image, date, author, className, 
   return (
     <div className={cx(['entry-header', className])}
     style={{
-      backgroundImage: `url(${image.src})`,
+      backgroundImage: `url(${FeaturedImage?.sourceUrl})`,
       width: '100%',
       height: '100%',
     }}>
@@ -34,7 +34,7 @@ export default function LocationHeader({ title, image, date, author, className, 
         <div className={cx('image')}>
           <div className="container">
             <FeaturedImage
-              className='LocationImageTest'
+              className=''{cx('featured-image')}''
               image={image}
               priority
             />
