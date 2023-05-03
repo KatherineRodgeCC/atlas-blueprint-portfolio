@@ -29,6 +29,18 @@ export default function LocationHeader({ title, image, date, author, className, 
           <p>{summary}</p>
         </div>
       )}
+
+      {image && (
+        <div className={cx('image')}>
+          <div className="container">
+            <FeaturedImage
+              className='LocationImage'
+              image={image}
+              priority
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
