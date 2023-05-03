@@ -34,7 +34,7 @@ export default function LocationHeader({ title, image, date, author, className, 
         <div className={cx('image')}>
           <div className="container">
             <FeaturedImage
-              className={cx('featured-image')}
+              className='LocationImage'
               image={image}
               priority
             />
