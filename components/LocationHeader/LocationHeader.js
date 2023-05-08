@@ -16,8 +16,7 @@ const cx = className.bind(styles);
  */
 export default function LocationHeader({ title, image, date, author, className, summary }) {
   const hasText = title || summary || date || author;
-  console.log({Props})
-
+  console.log({summary}); 
   return (
     <div className={cx(['entry-header', className])}
     style={{
