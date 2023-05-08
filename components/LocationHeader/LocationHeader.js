@@ -7,16 +7,13 @@ const cx = className.bind(styles);
  * A Page or Post entry header component
  * @param {Props} props The props object.
  * @param {string} props.title The post/page title.
- * @param {string} props.summary The subheader.
  * @param {MediaItem} props.image The image node.
- * @param {string} props.date The post/page publish date.
- * @param {string} props.author The post/page author's name.
  * @param {string} props.className An optional className to be added to the EntryHeader.
  * @return {React.ReactElement} The EntryHeader component.
  */
-export default function LocationHeader({ title, image, date, author, className, summary }) {
-  const hasText = title || summary || date || author;
-  console.log(hasText); 
+export default function LocationHeader({ props.data, title, image, className, summary }) {
+  const hasText = title || summary; 
+  console.log(props.data); 
   return (
     <div className={cx(['entry-header', className])}
     style={{
@@ -27,9 +24,9 @@ export default function LocationHeader({ title, image, date, author, className, 
       {hasText && (
         <div className={cx('text')} id="Location-header-textbox">
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          <PostInfo className={cx('byline')} summary={summary} />
+          <p class="location-subheader"></p>
           <div className="location-button-group-container">
-            <a href="#">Overview</a>
+            <a href="#">Overview</a>f
             <a href="#">Virutal Tour</a>
             <a href="#">Contact Us</a>
           </div>
