@@ -14,7 +14,7 @@ const cx = className.bind(styles);
  * @return {React.ReactElement} The EntryHeader component.
  */
 export default function LocationHeader({ title, image, date, author, className, summary }) {
-  const hasText = title || date || author;
+  const hasText = title || summary || date || author;
   console.log(image.sourceUrl);
 
   return (
@@ -27,7 +27,7 @@ export default function LocationHeader({ title, image, date, author, className, 
       {hasText && (
         <div className={cx('text')} id="Location-header-textbox">
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          {!!summary <p>{summary}</p>}
+          {!!summary && <p className='location-subheader'>{summary}</p>}
           <div class="location-button-group-container">
             <a href="#">Overview</a>
             <a href="#">Virutal Tour</a>
