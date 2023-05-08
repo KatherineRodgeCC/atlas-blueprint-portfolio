@@ -7,6 +7,7 @@ const cx = className.bind(styles);
  * A Page or Post entry header component
  * @param {Props} props The props object.
  * @param {string} props.title The post/page title.
+ * @param {string} props.summary The subheader.
  * @param {MediaItem} props.image The image node.
  * @param {string} props.date The post/page publish date.
  * @param {string} props.author The post/page author's name.
@@ -15,7 +16,7 @@ const cx = className.bind(styles);
  */
 export default function LocationHeader({ title, image, date, author, className, summary }) {
   const hasText = title || summary || date || author;
-  console.log(image.sourceUrl);
+  console.log({Props})
 
   return (
     <div className={cx(['entry-header', className])}
@@ -27,7 +28,7 @@ export default function LocationHeader({ title, image, date, author, className, 
       {hasText && (
         <div className={cx('text')} id="Location-header-textbox">
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          {!!summary && <p className='location-subheader'>{summary}</p>}
+          <p className='location-subheader'>{summary}</p>
           <div className="location-button-group-container">
             <a href="#">Overview</a>
             <a href="#">Virutal Tour</a>
