@@ -1,5 +1,5 @@
 import className from 'classnames/bind';
-import { FeaturedImage, Heading } from 'components';
+import { Heading } from 'components';
 
 import styles from './LocationHeader.module.scss';
 const cx = className.bind(styles);
@@ -27,7 +27,7 @@ export default function LocationHeader({ title, image, date, author, className, 
       {hasText && (
         <div className={cx('text')} id="Location-header-textbox">
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          {!!summary <p class="location-header-subheader">{summary}</p>}
+          {!!summary <p>{summary}</p>}
           <div class="location-button-group-container">
             <a href="#">Overview</a>
             <a href="#">Virutal Tour</a>
