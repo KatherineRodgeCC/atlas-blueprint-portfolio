@@ -39,4 +39,4 @@ export default function LocationHeader({ title, image, date, author, className, 
         </div>
       )}
     </div>
-  );
+  )};
