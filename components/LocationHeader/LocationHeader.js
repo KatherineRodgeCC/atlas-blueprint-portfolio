@@ -27,14 +27,14 @@ export default function LocationHeader({ title, image, date, author, className, 
       {hasText && (
         <div className={cx('text')} id="Location-header-textbox">
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
+        </div>
+      )}
           <p className='location-subheader'>{summary}</p>
           <div className="location-button-group-container">
             <a href="#">Overview</a>
             <a href="#">Virutal Tour</a>
             <a href="#">Contact Us</a>
           </div>
-        </div>
-      )}
     </div>
   );
 }
