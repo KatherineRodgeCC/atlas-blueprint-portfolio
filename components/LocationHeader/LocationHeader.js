@@ -15,12 +15,12 @@ const cx = className.bind(styles);
  */
 export default function LocationHeader({ title, image, date, author, className, summary }) {
   const hasText = title || date || author;
-  console.log(image);
+  console.log(image.sourceUrl);
 
   return (
     <div className={cx(['entry-header', className])}
     style={{
-      backgroundImage: `url(${image.src})`,
+      backgroundImage: `url(${image.sourceUrl})`,
       width: '100%',
       height: '100%',
     }}>
