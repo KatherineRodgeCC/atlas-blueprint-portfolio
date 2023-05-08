@@ -1,5 +1,6 @@
 import className from 'classnames/bind';
 import { FeaturedImage, Heading } from 'components';
+
 import styles from './LocationHeader.module.scss';
 const cx = className.bind(styles);
 /**
@@ -14,10 +15,11 @@ const cx = className.bind(styles);
  */
 export default function LocationHeader({ title, image, date, author, className, summary }) {
   const hasText = title || date || author;
+
   return (
     <div className={cx(['entry-header', className])}
     style={{
-      backgroundImage: `url(${image.sourceUrl})`,
+      backgroundImage: `url(${image.src})`,
       width: '100%',
       height: '100%',
     }}>
@@ -31,7 +33,7 @@ export default function LocationHeader({ title, image, date, author, className, 
         <div className={cx('image')}>
           <div className="container">
             <FeaturedImage
-              className='LocationImage'
+              className='Location'
               image={image}
               priority
             />
@@ -39,4 +41,5 @@ export default function LocationHeader({ title, image, date, author, className, 
         </div>
       )}
     </div>
-  )};
+  );
+}
