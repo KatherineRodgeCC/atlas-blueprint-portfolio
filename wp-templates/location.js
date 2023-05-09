@@ -60,25 +60,21 @@ export default function Component(props) {
               <div class="impact-section">
                 <p><strong>Employees</strong></p> 
                 <p>at Facility</p> 
-              </div> 
-              <hr />  
+              </div>     
               <div class="impact-section">
                 <p><strong>Taxable Wages</strong></p> 
                 <p>paid to Company Employees</p> 
               </div> 
-              <hr />     
             </div>
             <div class="column">
               <div class="impact-section">
                 <p><strong>Invested</strong></p> 
                 <p>in Facility</p> 
               </div> 
-              <hr /> 
               <div class="impact-section">
                 <p><strong>Donated</strong></p> 
                 <p>to local area nonprofits since</p> 
               </div> 
-              <hr /> 
             </div>  
          </div> 
         <div class="row" id="virtual-tour">
