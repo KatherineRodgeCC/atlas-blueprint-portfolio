@@ -42,20 +42,47 @@ export default function Component(props) {
             <div class="column">
               <div><h3>Location</h3>
               <p>{address}</p></div>
-              <div><h3>Facility Information</h3></div>
+              <div><h3>Facility Information</h3>
+              <p><strong>Year Opened:</strong></p>
+              <p><strong>Size:</strong></p>
+              <p><strong>Union:</strong></p>
+              <p><strong>Social:</strong></p>
+              </div>
               </div>
             <div class="column">
+             <h3>What We do</h3> 
              <ContentWrapper content={content} />
             </div>  
          </div> 
          <div class="row">
             <h3>US Operations Impact Numbers</h3>
-            <div class="column">        
+            <div class="column">   
+              <div class="impact-section">
+                <p><strong>Employees</strong></p> 
+                <p>at Facility</p> 
+              </div> 
+              <hr />  
+              <div class="impact-section">
+                <p><strong>Taxable Wages</strong></p> 
+                <p>paid to Company Employees</p> 
+              </div> 
+              <hr />     
             </div>
             <div class="column">
+              <div class="impact-section">
+                <p><strong>Invested</strong></p> 
+                <p>in Facility</p> 
+              </div> 
+              <hr /> 
+              <div class="impact-section">
+                <p><strong>Donated</strong></p> 
+                <p>to local area nonprofits since</p> 
+              </div> 
+              <hr /> 
             </div>  
          </div> 
-        <div class="row">
+        <div class="row" id="virtual-tour">
+        <h3>Photos & Video</h3>  
         <video width="320" height="240" controls>
           <source src={`${videolink}`} type="video/mp4">
            </source>   
