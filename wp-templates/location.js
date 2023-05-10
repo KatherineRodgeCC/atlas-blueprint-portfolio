@@ -58,24 +58,14 @@ export default function Component(props) {
             <h3>US Operations Impact Numbers</h3>
             <div class="column">   
               <div class="impact-section">
-                <p><strong>Employees</strong></p> 
+                <p>Employees</p> 
                 <p>at Facility</p> 
               </div>     
               <div class="impact-section">
-                <p><strong>Taxable Wages</strong></p> 
+                <p>Taxable Wages</p> 
                 <p>paid to Company Employees</p> 
               </div> 
             </div>
-            <div class="column">
-              <div class="impact-section">
-                <p><strong>Invested</strong></p> 
-                <p>in Facility</p> 
-              </div> 
-              <div class="impact-section">
-                <p><strong>Donated</strong></p> 
-                <p>to local area nonprofits since</p> 
-              </div> 
-            </div>  
          </div> 
         <div class="row">
         <h3>Photos & Video</h3>  
