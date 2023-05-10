@@ -59,7 +59,14 @@ export default function Component(props) {
           </div>  
           <div className="row">
             <div className="column">
-              <div><h3>US Operations Impact Numbers</h3></div>
+              <div style={{
+                display: block,
+                width: 100%
+            }}>
+              <h3 style={{
+                color: green;
+              }}>US Operations Impact Numbers</h3>
+            </div>
             </div>
           </div>
           <div className="row">
