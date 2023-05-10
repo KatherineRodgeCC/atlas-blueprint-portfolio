@@ -51,10 +51,22 @@ export default function Component(props) {
               <p>Social:</p>
              </div>
            </div>
-           <div className="column"> 
+           <div className="column">
+            <div><h3>What We Do</h3> 
             <ContentWrapper content={content} />
+            </div>
            </div>
           </div> 
+          <div className="row">
+            <h3>US Operations Impact Numbers</h3>
+            <div className="column"> 
+             <div>
+               <p>1000</p>
+               <p><strong>Employees</strong></p>
+               <p>at {title}</p>
+             </div>
+           </div>
+          </div>
         </div>
       </Main>
 
