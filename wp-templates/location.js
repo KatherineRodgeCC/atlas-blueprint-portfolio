@@ -12,6 +12,7 @@ import {
   SEO,
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
+
 export default function Component(props) {
   // Loading state for previews
   if (props.loading) {
@@ -27,7 +28,9 @@ export default function Component(props) {
         title={`${title} - ${props?.data?.generalSettings?.title}`}
         imageUrl={featuredImage?.node?.sourceUrl}
       />
+
       <Header menuItems={primaryMenu} />
+
       <Main>
         <LocationHeader 
           image={featuredImage?.node}
@@ -45,19 +48,22 @@ export default function Component(props) {
              <h3>What We do</h3> 
              <ContentWrapper content={content} />
             </div>  
-         </div>             
-        <div class="row" id="virtual-tour">
-        <video width="320" height="240" controls>
-          <source src={`${videolink}`} type="video/mp4">
-           </source>   
-        </video>
-        </div>
+          </div> 
+          <div class="row">
+            <h3>Photos & Video</h3>  
+            <video width="320" height="240" controls>
+              <source src={`${videolink}`} type="video/mp4">
+              </source>   
+            </video>
+          </div>
        </div>
       </Main>
+
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
+
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
@@ -89,6 +95,7 @@ Component.query = gql`
     }
   }
 `;
+
 Component.variables = ({ databaseId }, ctx) => {
   return {
     databaseId,
