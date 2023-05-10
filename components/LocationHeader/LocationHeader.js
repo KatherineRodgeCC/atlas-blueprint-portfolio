@@ -22,7 +22,7 @@ export default function LocationHeader({ props, title, image, className, summary
       height: '100%',
     }}>
       {hasText && (
-        <div className={cx('text')} id="Location-header-textbox">
+        <div className={cx('text')}>
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
           <p className="location-subheader"></p>
           <div className="location-button-group-container">
