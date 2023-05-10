@@ -38,25 +38,8 @@ export default function Component(props) {
           title={title}
           />
         <div className="container location-information">
-          <div class="row">
-            <div class="column">
-              <div><h3>Location</h3>
-              <p>{address}</p></div>
-              <div><h3>Facility Information</h3></div>
-            </div>
-            <div class="column">
-             <h3>What We do</h3> 
-             <ContentWrapper content={content} />
-            </div>  
-          </div> 
-          <div class="row">
-            <h3>Photos & Video</h3>  
-            <video width="320" height="240" controls>
-              <source src={`${videolink}`} type="video/mp4">
-              </source>   
-            </video>
-          </div>
-       </div>
+          <p>Test</p>
+        </div>
       </Main>
 
       <Footer title={siteTitle} menuItems={footerMenu} />
