@@ -12,11 +12,11 @@ const cx = className.bind(styles);
  */
 function LocationMainInformation({ content, address }) {
   return (
-    <section className={cx('content-info')}>
+    <section className='content-info'>
       <div className="container">
         <div className="row row-center">
-          <div className={cx('column')}> 
-            <Heading level="h3">Location</Heading>
+          <div className="column"> 
+              <Heading level="h3">Location</Heading>
               <p>{address}</p>
               <p><a href="#">Map Link</a></p>
               <Heading level="h3">Facility</Heading>
@@ -25,7 +25,7 @@ function LocationMainInformation({ content, address }) {
               <p>Union:</p>
               <p>Social:</p>
              </div>
-           <div className={cx('column')}>
+           <div className="column">
             <Heading level="h3">What we Do</Heading>
             <p>{content}</p>
            </div>
