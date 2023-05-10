@@ -14,7 +14,7 @@ const cx = className.bind(styles);
  * @return {React.ReactElement} The EntryHeader component.
  */
 export default function LocationHeader({ title, image, date, author, className }) {
-  const hasText = title || summary || author || date; 
+  const hasText = title || author || date; 
   return (
     <div className={cx(['entry-header', className])}
     style={{
