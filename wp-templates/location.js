@@ -57,9 +57,6 @@ export default function Component(props) {
             </div>
            </div>
           </div>  
-          <section className="text-center">
-            <h3>US Operations Impact Numbers</h3>
-          </section>
           <div className="row">
             <div className="column"> 
              <div>
@@ -85,6 +82,12 @@ export default function Component(props) {
                <p>to {title} area nonprofits</p>
              </div>
            </div>
+          </div>
+          <div className="row">
+              <video width="320" height="240" controls>
+              <source src={`${videolink}`} type="video/mp4">
+              </source>   
+              </video>
           </div>
         </div>
       </Main>
