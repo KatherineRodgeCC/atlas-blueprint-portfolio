@@ -5,7 +5,7 @@ import {
   Header,
   Footer,
   LocationHeader,
-  ContentWrapper,
+  LocationMainInformation,
   NavigationMenu,
   FeaturedImage,
   Main,
@@ -32,31 +32,16 @@ export default function Component(props) {
       <Header menuItems={primaryMenu} />
 
       <Main>
-      < LocationHeader
+        <LocationHeader
             image={featuredImage?.node}
             summary={summary}
             title={title}
           />
+        <LocationMainInformation 
+             address={address}
+             content={content}
+        />
         <div className="container">
-         <div className="row"> 
-           <div className="column"> 
-             <div><h3>Location</h3>
-              <p>{address}</p>
-              <p><a href="#">Map Link</a></p>
-             </div>
-             <div><h3>Facility</h3>
-              <p>Year:</p>
-              <p>Size:</p>
-              <p>Union:</p>
-              <p>Social:</p>
-             </div>
-           </div>
-           <div className="column">
-            <div><h3>What We Do</h3> 
-            <ContentWrapper content={content} />
-            </div>
-           </div>
-          </div>  
           <div className="row">
             <div className="column"> 
              <div>
