@@ -49,7 +49,6 @@ export default function Component(props) {
               <p>Size:</p>
               <p>Union:</p>
               <p>Social:</p>
-              <p>{videoLink}</p>
              </div>
            </div>
            <div className="column">
@@ -87,9 +86,7 @@ export default function Component(props) {
           <div className="row">
             <div><h3>Virutal Tour</h3></div>
             <div>
-              <video width="320" height="240" controls>
-                <source src={`${videolink}`} type="video/mp4"></source>   
-              </video>
+              <iframe width="320" height="240" src="https://youtu.be/MIvuesyHliE"></iframe>
              </div> 
           </div>
         </div>
