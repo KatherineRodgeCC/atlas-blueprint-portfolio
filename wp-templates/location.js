@@ -37,7 +37,7 @@ export default function Component(props) {
           summary={summary}
           title={title}
           />
-        <div className="container location-information">
+        <div class="container location-information">
           <div class="row">
             <div class="column">
               <div><h3>Location</h3>
@@ -52,29 +52,6 @@ export default function Component(props) {
             <div class="column">
              <h3>What We do</h3> 
              <ContentWrapper content={content} />
-            </div>  
-         </div> 
-         <div class="row">
-            <h3>US Operations Impact Numbers</h3>
-            <div class="column">   
-              <div>
-                <p>Employees</p> 
-                <p>at Facility</p> 
-              </div>     
-              <div>
-                <p>Taxable Wages</p> 
-                <p>paid to Company Employees</p> 
-              </div> 
-            </div>
-            <div class="column">
-              <div>
-                <p>Invested</p> 
-                <p>in Facility</p> 
-              </div> 
-              <div>
-                <p>Donated</p> 
-                <p>to local area nonprofits since</p> 
-              </div> 
             </div>  
          </div> 
         <div class="row">
