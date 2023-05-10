@@ -32,15 +32,24 @@ export default function Component(props) {
       <Header menuItems={primaryMenu} />
 
       <Main>
-        <div className="container">
-          < LocationHeader
+      < LocationHeader
             image={featuredImage?.node}
             summary={summary}
             title={title}
           />
+        <div className="container">
          <div className="row"> 
            <div className="column"> 
-             <div><h3>Location</h3></div>
+             <div><h3>Location</h3>
+              <p>{address}</p>
+              <p><a href="#">Map Link</a></p>
+             </div>
+             <div><h3>Facility</h3>
+              <p>Year:</p>
+              <p>Size:</p>
+              <p>Union:</p>
+              <p>Social:</p>
+             </div>
            </div>
            <div className="column"> 
             <ContentWrapper content={content} />
