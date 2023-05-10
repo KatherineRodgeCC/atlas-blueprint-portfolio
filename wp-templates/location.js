@@ -84,10 +84,10 @@ export default function Component(props) {
            </div>
           </div>
           <div className="row">
-            <div><h3>Virutal Tour</h3></div>
-            <div>
-              <iframe width="320" height="240" src="https://youtu.be/MIvuesyHliE"></iframe>
-             </div> 
+            <div className="column">
+                <h3>Virutal Tour</h3>
+                <iframe width="320" height="240" src="https://youtu.be/MIvuesyHliE"></iframe>
+             </div>
           </div>
         </div>
       </Main>
