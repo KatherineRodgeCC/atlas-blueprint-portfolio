@@ -58,9 +58,9 @@ Component.query = gql`
     $asPreview: Boolean = false
   ) {
     location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-      title: locationTitle
-      summary
-      contentArea
+      title: facilityName
+      content
+      address
       ...FeaturedImageFragment
     }
     generalSettings {
