@@ -13,9 +13,8 @@ const cx = className.bind(styles);
  * @param {string} props.className An optional className to be added to the EntryHeader.
  * @return {React.ReactElement} The EntryHeader component.
  */
-export default function LocationHeader({ props, title, image, date, author, className, summary }) {
+export default function LocationHeader({ title, image, date, author, className }) {
   const hasText = title || summary || author || date; 
-  console.log(props.data); 
   return (
     <div className={cx(['entry-header', className])}
     style={{
@@ -26,7 +25,7 @@ export default function LocationHeader({ props, title, image, date, author, clas
       {hasText && (
         <div className={cx('text')}>
           {!!title && <Heading className={cx('title')}>{title}</Heading>}
-          <PostInfo className={cx('byline')} author={author} date={date} summary ={summary} />
+          <PostInfo className={cx('byline')} author={author} date={date} />
           <div className="location-button-group-container">
             <a href="#">Overview</a>f
             <a href="#">Virutal Tour</a>
