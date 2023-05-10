@@ -57,7 +57,7 @@ export default function Component(props) {
             </div>
            </div>
           </div> 
-          <div className="location-title"><h3>US Operations Impact Numbers</h3></div> 
+          <div className="row location-title"><h3>US Operations Impact Numbers</h3></div> 
           <div className="row">
             <div className="column"> 
              <div>
@@ -84,7 +84,7 @@ export default function Component(props) {
              </div>
            </div>
           </div>
-          <div className="location-title"><h3>US Operations Impact Numbers</h3></div>
+          <div className="row location-title"><h3>Videos & Photos</h3></div>
           <div className="row">
             <video width="320" height="240" controls>
               <source src={`${videolink}`} type="video/mp4">
