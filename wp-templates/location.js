@@ -3,8 +3,9 @@ import * as MENUS from 'constants/menus';
 import { gql } from '@apollo/client';
 import {
   Header,
+  EntryHeader,
   Footer,
-  LocationHeader,
+  ProjectHeader,
   ContentWrapper,
   NavigationMenu,
   FeaturedImage,
@@ -35,7 +36,8 @@ export default function Component(props) {
       <div className="container">
           <ContentWrapper content={contentArea} />
         </div>
-        <LocationHeader
+        <EntryHeader title={title} />
+        <ProjectHeader
           image={featuredImage?.node}
           summary={summary}
           title={title}
