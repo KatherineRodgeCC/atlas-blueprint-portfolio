@@ -57,9 +57,8 @@ export default function Component(props) {
             </div>
            </div>
           </div>  
-
           <div className="row">
-            <h3>US Operations Impact Numbers</h3>
+            <div><h3>US Operations Impact Numbers</h3></div>
             <div className="column"> 
              <div>
                <p>1000</p>
