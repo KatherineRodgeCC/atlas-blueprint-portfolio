@@ -43,12 +43,12 @@ export default function Component(props) {
               <div><h3>Location</h3>
               <p>{address}</p></div>
               <div><h3>Facility Information</h3>
-              <p><strong>Year Opened:</strong></p>
-              <p><strong>Size:</strong></p>
-              <p><strong>Union:</strong></p>
-              <p><strong>Social:</strong></p>
+              <p>Year Opened:</p>
+              <p>Size:</p>
+              <p>Union:</p>
+              <p>Social:</p>
               </div>
-              </div>
+            </div>
             <div class="column">
              <h3>What We do</h3> 
              <ContentWrapper content={content} />
@@ -57,15 +57,25 @@ export default function Component(props) {
          <div class="row">
             <h3>US Operations Impact Numbers</h3>
             <div class="column">   
-              <div class="impact-section">
+              <div>
                 <p>Employees</p> 
                 <p>at Facility</p> 
               </div>     
-              <div class="impact-section">
+              <div>
                 <p>Taxable Wages</p> 
                 <p>paid to Company Employees</p> 
               </div> 
             </div>
+            <div class="column">
+              <div>
+                <p>Invested</p> 
+                <p>in Facility</p> 
+              </div> 
+              <div>
+                <p>Donated</p> 
+                <p>to local area nonprofits since</p> 
+              </div> 
+            </div>  
          </div> 
         <div class="row">
         <h3>Photos & Video</h3>  
