@@ -21,7 +21,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, summary, featuredImage, contentArea } = props.data.location;
+  const { title, summary, featuredImage, address, videoLink, content } = props.data.location;
   return (
     <>
       <SEO
@@ -32,14 +32,31 @@ export default function Component(props) {
       <Header menuItems={primaryMenu} />
 
       <Main>
-      <div className="container">
-          <ContentWrapper content={contentArea} />
-        </div>
-        < LocationHeader
+        <LocationHeader 
           image={featuredImage?.node}
           summary={summary}
           title={title}
-        />
+          />
+        <div className="container location-information">
+          <div class="row">
+            <div class="column">
+              <div><h3>Location</h3>
+              <p>{address}</p></div>
+              <div><h3>Facility Information</h3></div>
+            </div>
+            <div class="column">
+             <h3>What We do</h3> 
+             <ContentWrapper content={content} />
+            </div>  
+          </div> 
+          <div class="row">
+            <h3>Photos & Video</h3>  
+            <video width="320" height="240" controls>
+              <source src={`${videolink}`} type="video/mp4">
+              </source>   
+            </video>
+          </div>
+        </div>
       </Main>
 
       <Footer title={siteTitle} menuItems={footerMenu} />
