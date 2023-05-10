@@ -58,6 +58,9 @@ export default function Component(props) {
            </div>
           </div>  
           <div className="row">
+            <h3>US Operations Impact Numbers</h3>
+          </div>
+          <div className="row">
             <div className="column"> 
              <div>
                <p>1000</p>
@@ -83,6 +86,11 @@ export default function Component(props) {
              </div>
            </div>
           </div>
+          <div className="row">
+            <div>
+              <h3>Video & Photography</h3>
+            </div>
+          </div>
         </div>
       </Main>
 
@@ -105,6 +113,7 @@ Component.query = gql`
       title: facilityName
       content
       address
+      videoLink
       ...FeaturedImageFragment
     }
     generalSettings {
