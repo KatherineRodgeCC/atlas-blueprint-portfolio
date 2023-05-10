@@ -49,13 +49,12 @@ export default function Component(props) {
               <p>Size:</p>
               <p>Union:</p>
               <p>Social:</p>
+              <p>{videoLink}</p>
              </div>
            </div>
            <div className="column">
             <div><h3>What We Do</h3> 
             <ContentWrapper content={content} />
-            <p>{props.data.location}</p>
-            <p>{videoLink}</p>
             </div>
            </div>
           </div>  
