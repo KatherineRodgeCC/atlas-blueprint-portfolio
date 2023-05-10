@@ -40,8 +40,7 @@ export default function Component(props) {
               <div><h3>Location</h3>
               <p>{address}</p></div>
               <div><h3>Facility Information</h3></div>
-              </div>
-              </div>
+            </div>
             <div class="column">
              <h3>What We do</h3> 
              <ContentWrapper content={content} />
@@ -53,6 +52,7 @@ export default function Component(props) {
            </source>   
         </video>
         </div>
+       </div>
       </Main>
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
