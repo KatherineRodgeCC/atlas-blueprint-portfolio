@@ -3,9 +3,8 @@ import * as MENUS from 'constants/menus';
 import { gql } from '@apollo/client';
 import {
   Header,
-  EntryHeader,
   Footer,
-  ProjectHeader,
+  LocationHeader,
   ContentWrapper,
   NavigationMenu,
   FeaturedImage,
@@ -22,7 +21,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, summary, featuredImage, contentArea } = props.data.project;
+  const { title, summary, featuredImage, contentArea } = props.data.location;
   return (
     <>
       <SEO
@@ -36,8 +35,7 @@ export default function Component(props) {
       <div className="container">
           <ContentWrapper content={contentArea} />
         </div>
-        <EntryHeader title={title} />
-        <ProjectHeader
+        < LocationHeader
           image={featuredImage?.node}
           summary={summary}
           title={title}
@@ -59,8 +57,8 @@ Component.query = gql`
     $footerLocation: MenuLocationEnum
     $asPreview: Boolean = false
   ) {
-    project(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-      title: projectTitle
+    location(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
+      title: locationTitle
       summary
       contentArea
       ...FeaturedImageFragment
