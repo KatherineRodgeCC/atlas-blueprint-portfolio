@@ -1,5 +1,5 @@
 import className from 'classnames/bind';
-import { Heading } from 'components';
+import { Heading, PostInfo } from 'components';
 
 import styles from './LocationHeader.module.scss';
 const cx = className.bind(styles);
