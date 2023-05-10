@@ -2,7 +2,7 @@ import React from 'react';
 import { Heading } from 'components';
 import className from 'classnames/bind';
 
-import styles from './ProjectHeader.module.scss';
+import styles from './LocationMainInformation.module.scss';
 const cx = className.bind(styles);
 /**
  * A Project entry header component
