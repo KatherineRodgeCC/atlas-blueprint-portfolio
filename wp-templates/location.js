@@ -12,7 +12,6 @@ import {
   SEO,
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
-
 export default function Component(props) {
   // Loading state for previews
   if (props.loading) {
@@ -28,47 +27,37 @@ export default function Component(props) {
         title={`${title} - ${props?.data?.generalSettings?.title}`}
         imageUrl={featuredImage?.node?.sourceUrl}
       />
-
       <Header menuItems={primaryMenu} />
-
       <Main>
         <LocationHeader 
           image={featuredImage?.node}
           summary={summary}
           title={title}
           />
-        <div class="container location-information">
+        <div className="container location-information">
           <div class="row">
             <div class="column">
               <div><h3>Location</h3>
               <p>{address}</p></div>
-              <div><h3>Facility Information</h3>
-              <p>Year Opened:</p>
-              <p>Size:</p>
-              <p>Union:</p>
-              <p>Social:</p>
+              <div><h3>Facility Information</h3></div>
               </div>
-            </div>
+              </div>
             <div class="column">
              <h3>What We do</h3> 
              <ContentWrapper content={content} />
             </div>  
-         </div> 
-        <div class="row">
-        <h3>Photos & Video</h3>  
+         </div>             
+        <div class="row" id="virtual-tour">
         <video width="320" height="240" controls>
           <source src={`${videolink}`} type="video/mp4">
            </source>   
         </video>
         </div>
-       </div>
       </Main>
-
       <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
-
 Component.query = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
@@ -100,7 +89,6 @@ Component.query = gql`
     }
   }
 `;
-
 Component.variables = ({ databaseId }, ctx) => {
   return {
     databaseId,
