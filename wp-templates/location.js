@@ -56,10 +56,7 @@ export default function Component(props) {
             <ContentWrapper content={content} />
             </div>
            </div>
-          </div> 
-          <div className="row">
-            <h3>US Operations Impact Numbers</h3>
-          </div> 
+          </div>  
           <div className="row">
             <div className="column"> 
              <div>
@@ -85,9 +82,6 @@ export default function Component(props) {
                <p>to {title} area nonprofits</p>
              </div>
            </div>
-          </div>
-          <div className="row">
-            <h3>Videos & Photos</h3>
           </div>
           <div className="row">
             <video width="320" height="240" controls>
