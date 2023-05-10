@@ -77,7 +77,7 @@ export default function Component(props) {
               </div> 
             </div>  
          </div> 
-        <div class="row" id="virtual-tour">
+        <div class="row">
         <h3>Photos & Video</h3>  
         <video width="320" height="240" controls>
           <source src={`${videolink}`} type="video/mp4">
