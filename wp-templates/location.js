@@ -4,7 +4,6 @@ import { gql } from '@apollo/client';
 import {
   Header,
   Footer,
-  LocationHeader,
   ContentWrapper,
   NavigationMenu,
   FeaturedImage,
@@ -35,11 +34,6 @@ export default function Component(props) {
       <div className="container">
           <ContentWrapper content={contentArea} />
         </div>
-        < LocationHeader
-          image={featuredImage?.node}
-          summary={summary}
-          title={title}
-        />
       </Main>
 
       <Footer title={siteTitle} menuItems={footerMenu} />
