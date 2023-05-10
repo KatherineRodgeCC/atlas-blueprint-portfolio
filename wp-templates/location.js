@@ -83,11 +83,6 @@ export default function Component(props) {
              </div>
            </div>
           </div>
-          <div className="row">
-            <div className="column">
-                <h3>Virutal Tour</h3>
-             </div>
-          </div>
         </div>
       </Main>
 
