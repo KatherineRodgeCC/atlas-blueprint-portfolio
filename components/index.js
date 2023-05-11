@@ -9,6 +9,7 @@ import Header from './Header';
 import LoadMore from './LoadMore';
 import LocationHeader from './LocationHeader';
 import LocationMainInformation from './LocationMainInformation';
+import LocationStatsSection from './LocationStatsSection';
 import Main from './Main';
 import NavigationMenu from './NavigationMenu/NavigationMenu';
 import PostInfo from './PostInfo/PostInfo';
@@ -40,6 +41,7 @@ export {
   LoadMore,
   LocationHeader,
   LocationMainInformation,
+  LocationStatsSection,
   Main,
   NavigationMenu,
   PostInfo,

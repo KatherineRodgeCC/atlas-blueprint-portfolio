@@ -7,6 +7,7 @@ import {
   EntryHeader,
   LocationHeader,
   LocationMainInformation,
+  LocationStatsSection,
   NavigationMenu,
   FeaturedImage,
   Main,
@@ -45,32 +46,9 @@ export default function Component(props) {
              content={content}
              title={title}
         />
-          <div className="row">
-            <div className="column"> 
-             <div>
-               <p>1000</p>
-               <p><strong>Employees</strong></p>
-               <p>at {title}</p>
-             </div>
-             <div>
-               <p>$91.4M</p>
-               <p><strong>Taxable Wages</strong></p>
-               <p>paid to {title} employees</p>
-             </div>
-           </div>
-           <div className="column"> 
-             <div>
-               <p>$65M+</p>
-               <p><strong>Invested</strong></p>
-               <p>in {title}</p>
-             </div>
-             <div>
-               <p>$905K+</p>
-               <p><strong>Donated</strong></p>
-               <p>to {title} area nonprofits</p>
-             </div>
-           </div>
-          </div>
+        <LocationStatsSection
+             title={title}
+        />
         </div>
       </Main>
 
