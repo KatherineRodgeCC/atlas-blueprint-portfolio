@@ -2,6 +2,7 @@ import React from 'react';
 import { Heading } from 'components';
 
 import styles from './VideoSection.module.scss';
+const cx = className.bind(styles);
 
 /**
  * A Project entry header component
@@ -13,10 +14,12 @@ function VideoSection({ videolink }) {
     <section className='video-section'>
       <Heading level="h3">Video & Photos</Heading>
         <div className="row row-center">
+          <div className={cx('column')}>
             <video width="320" height="240" controls>
               <source src={videolink} type="video/mp4">
               </source>   
             </video>
+          </div> 
         </div>
     </section>
   );
