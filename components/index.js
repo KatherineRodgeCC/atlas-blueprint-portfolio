@@ -28,6 +28,7 @@ import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 import LoadingSearchResult from './LoadingSearchResult';
 import SearchRecommendations from './SearchRecommendations';
+import VideoSection from './VideoSection';
 
 export {
   Button,
@@ -60,4 +61,5 @@ export {
   SearchResults,
   SearchRecommendations,
   LoadingSearchResult,
+  VideoSection
 };

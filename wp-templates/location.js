@@ -12,6 +12,7 @@ import {
   FeaturedImage,
   Main,
   SEO,
+  VideoSection
 } from 'components';
 import { BlogInfoFragment } from 'fragments/GeneralSettings';
 
@@ -48,6 +49,9 @@ export default function Component(props) {
         />
         <LocationStatsSection
              title={title}
+        />
+        <VideoSection
+             videolink={videolink}
         />
         </div>
       </Main>
