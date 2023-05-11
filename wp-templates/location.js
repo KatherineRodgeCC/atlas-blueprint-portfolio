@@ -4,6 +4,7 @@ import { gql } from '@apollo/client';
 import {
   Header,
   Footer,
+  EntryHeader,
   LocationHeader,
   LocationMainInformation,
   NavigationMenu,
@@ -21,7 +22,7 @@ export default function Component(props) {
   const { title: siteTitle } = props?.data?.generalSettings;
   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-  const { title, summary, featuredImage, address, videoLink, content } = props.data.location;
+  const { title, summary, featuredImage, address, videolink, content } = props.data.location;
   return (
     <>
       <SEO
@@ -32,6 +33,7 @@ export default function Component(props) {
       <Header menuItems={primaryMenu} />
 
       <Main>
+        <EntryHeader title={title} />
         <LocationHeader
             image={featuredImage?.node}
             summary={summary}
@@ -91,7 +93,7 @@ Component.query = gql`
       title: facilityName
       content
       address
-      videoLink
+      videolink
       ...FeaturedImageFragment
     }
     generalSettings {
