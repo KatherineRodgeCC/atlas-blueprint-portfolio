@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heading } from 'components';
+import className from 'classnames/bind';
 
 import styles from './VideoSection.module.scss';
 const cx = className.bind(styles);
