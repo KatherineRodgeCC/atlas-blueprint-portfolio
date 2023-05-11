@@ -39,12 +39,12 @@ export default function Component(props) {
             summary={summary}
             title={title}
           />
+        <div className="container">
         <LocationMainInformation 
              address={address}
              content={content}
              title={title}
         />
-        <div className="container">
           <div className="row">
             <div className="column"> 
              <div>
