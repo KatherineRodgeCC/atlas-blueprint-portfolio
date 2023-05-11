@@ -5,6 +5,7 @@ import {
   Header,
   Footer,
   LocationHeader,
+  LocationMainInformation,
   NavigationMenu,
   FeaturedImage,
   Main,
@@ -36,6 +37,11 @@ export default function Component(props) {
             summary={summary}
             title={title}
           />
+        <LocationMainInformation 
+             address={address}
+             content={content}
+             title={title}
+        />
         <div className="container">
           <div className="row">
             <div className="column"> 
